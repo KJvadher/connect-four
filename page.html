@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<style>
+.column {
+    width: 600px;
+    height: 70px;
+    margin: 0px;
+    border: 2px black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+}
+
+.row {
+    width: 800px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.marker {
+    width: 80px;
+    height: 80px;
+}
+
+#winner-display {
+    display: none;
+    background-color: red;
+    color: white;
+}
+
+body {
+    text-align: center;
+}
+
+#reset-button{
+    margin-top: 10px;
+}
+.column {
+
+border-radius: 50%;
+border-color: blue;
+width: 10px;
+height: 10px;
+padding: 20px;
+
+}
+table{
+    border:1px solid rgb(8, 43, 243);
+    border-spacing: 10px;
+    
+} 
+th{
+  border:1px solid rgb(8, 43, 243);
+  padding: 35px;
+  
+
+}
+td{
+    border-radius: 50%;
+    border:1px solid rgb(8, 43, 243);
+    padding: 35px;
+}
+.center
+{
+  position: fixed;
+
+}
+.parent {
+  position: relative;
+}
+
+.child {
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+
+  position: fixed;
+  top: 250px;
+  left: 755px;
+
+  margin: -70px 0 0 -130px;
+}
+.filled-circle {
+  padding: 2px 11px;
+  border-radius: 100%;
+  background-color: #f38e23;
+}  
+</style>
+<html>
+<head>
+  <title>Connect-4</title>
+  <meta content="text/html; charset=utf-8"
+        http-equiv="content-type">
+</head>
+<body>
+  <h1>Connect-4</h1>
+  <p id="winner-display">The winner is <span id="winner-name"></span></p>
+  <div class="parent" id="grid">
+    <table class="child" id="grid">
+        <tr id="row-0" >
+            <td id="row-0-column-0" ><span></span></td>
+            <td id="row-0-column-1"></td>
+            <td id="row-0-column-2"></td>
+            <td id="row-0-column-3"></td>
+            <td id="row-0-column-4"></td>
+            <td id="row-0-column-5"></td>
+            <td id="row-0-column-6"></td>
+        </tr>
+        <tr id="row-1">
+            <td id="row-1-column-0"></td>
+            <td id="row-1-column-1"></td>
+            <td id="row-1-column-2"></td>
+            <td id="row-1-column-3"></td>
+            <td id="row-1-column-4"></td>
+            <td id="row-1-column-5"></td>
+            <td id="row-1-column-6"></td>
+          </tr>
+          <tr id="row-2">
+            <td id="row-2-column-0"></td>
+            <td id="row-2-column-1"></td>
+            <td id="row-2-column-2"></td>
+            <td id="row-2-column-3"></td>
+            <td id="row-2-column-4"></td>
+            <td id="row-2-column-5"></td>
+            <td id="row-2-column-6"></td>
+          </tr>
+          <tr id="row-3">
+            <td id="row-3-column-0"></td>
+            <td id="row-3-column-1"></td>
+            <td id="row-3-column-2"></td>
+            <td id="row-3-column-3"></td>
+            <td id="row-3-column-4"></td>
+            <td id="row-3-column-5"></td>
+            <td id="row-3-column-6"></td>
+          </tr>
+          <tr id="row-4">
+            <td id="row-4-column-0"></td>
+            <td id="row-4-column-1"></td>
+            <td id="row-4-column-2"></td>
+            <td id="row-4-column-3"></td>
+            <td id="row-4-column-4"></td>
+            <td id="row-4-column-5"></td>
+            <td id="row-4-column-6"></td>
+          </tr>
+          <tr id="row-5">
+            <td id="row-5-column-0"></td>
+            <td id="row-5-column-1"></td>
+            <td id="row-5-column-2"></td>
+            <td id="row-5-column-3"></td>
+            <td id="row-5-column-4"></td>
+            <td id="row-5-column-5"></td>
+            <td id="row-5-column-6"></td>
+          </tr>
+      </table>
+  </div>
+  <button id="reset-button">Reset</button>
+  <p>Remember to open your dev tools by pressing F12 to view log messages and errors!</p>
+  <script src="connectors.js"
+      type="text/javascript"></script>
+    <script src="academy.js"
+        type="text/javascript"></script> 
+</body>
+</html>
