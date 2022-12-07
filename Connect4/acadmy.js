@@ -1,3 +1,4 @@
+//shez
 var board = [
 [null, null, null,null, null, null, null],
 [null, null, null,null, null, null, null],
