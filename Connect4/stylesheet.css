@@ -1,0 +1,132 @@
+.marker {
+    width: 80px;
+    height: 80px;
+}
+
+#winner-display {
+    display: none;
+    background-color: red;
+    color: white;
+}
+
+body {
+    text-align: center;
+}
+
+#reset-button{
+    margin-top: 10px;
+}
+.column {
+
+border-radius: 50%;
+border-color: blue;
+width: 10px;
+height: 10px;
+padding: 20px;
+
+}
+table{
+    border:1px solid royalblue;
+    border-spacing: 10px;
+    background-color: royalblue;
+    
+} 
+th{
+  border:1px solid royalblue;
+  padding: 35px;
+  
+
+}
+td{
+    border-radius: 50%;
+    border:1px solid royalblue;
+    background-color: white;
+    box-shadow: inset .5vh .5vh 2vh .5vh rgba( 0, 0, 0, .5 );
+    padding: 35px;
+}
+.child {
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+}
+.trapezium {
+    height: 0;
+    width: 622px;
+    border-bottom: 100px solid royalblue;
+    border-left: 55px solid transparent;
+    border-right: 55px solid transparent;
+    box-shadow: inset 0.5vh 0.5vh 2vh 0.5vh rgb(0 0 0 / 50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.yellow{
+ background-color: yellow;
+}
+.red{
+  background-color: red;
+}
+.flex{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background-image: url('rednyellow.png');
+
+}
+output {
+  display: none;
+  position: fixed;
+  width: 83vh;
+  height: 10vh;
+  top: 20vh;
+  left: 449px;
+  background: white;
+  text-align: center;
+  font: 5vh sans-serif;
+  line-height: 10vh;
+  cursor: pointer;
+  box-shadow: .5vh .5vh 2vh .5vh rgba( 0, 0, 0, .5 );
+}
+output:before {
+  content: attr( class );
+}
+output.red,
+output.yellow {
+  display: block;
+}
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('digital-7.regular.ttf');
+}
+h2 {
+        color: red;
+        margin: 0 30px;
+        font-family:'digital-clock-font'
+      }
+.number{
+  font-size: 50px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+}
+.title{
+  font-size: 80px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.myDiv {
+  width: 520px;
+  height: fit-content;
+  left: 500px;
+  border: 2px outset white;
+  background-color: black;    
+}
+#reset-button{
+    margin-top: 10px;
+}
