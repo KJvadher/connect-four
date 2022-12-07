@@ -1,3 +1,4 @@
+//shez
 var board = [
 [null, null, null,null, null, null, null],
 [null, null, null,null, null, null, null],
@@ -6,7 +7,8 @@ var board = [
 [null, null, null,null, null, null, null],
 [null, null, null,null, null, null, null],]
 var nought = 'nought'
-var cross = 'cross'
+var cross = 'cross' 
+//shez is here
 var counter = 0
 var cArr =[5,5,5,5,5,5,5]
 var num = 0
