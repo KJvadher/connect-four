@@ -1,5 +1,6 @@
 var n_score = 0
 var c_score = 0
+var res = []
 
 document.getElementById("counting").innerText = c_score + '  VS  ' + n_score;
 
@@ -10,12 +11,6 @@ function clearBoard() {
         }
     }
     document.querySelector( "output" ).classList.remove('yellow' || 'red');
-}
-
-function soham ()
-{
-    console.log("Soham");
-    console.log("Github desktop is amazing");
 }
 
 function drawBoard(board) {
@@ -44,7 +39,15 @@ function scoreCounter(winner){
 
 }
 
+function animateL(line){
+    for(let i = 0; i>line.length; i++){
+        if(5 - line[i] == 4){
 
+        }
+        //console.log(i)
+        //document.getElementById(i).animate({backgroundColor: "pink"}, 1000);
+    }
+}
 
 function positionClick(rowIndex, columnIndex, event) {
     takeTurn(rowIndex, columnIndex);
@@ -63,6 +66,8 @@ function positionClick(rowIndex, columnIndex, event) {
         }else if(winner === 'crosses'){
             color = 'red'
         }
+        //console.log(cArr)
+        //animateL(pos)
         output.classList.add(color);
     }
     scoreCounter(winner);
