@@ -15,6 +15,7 @@ function clearBoard() {
 function soham ()
 {
     console.log("Soham");
+    console.log("Github desktop is amazing");
 }
 
 function drawBoard(board) {
