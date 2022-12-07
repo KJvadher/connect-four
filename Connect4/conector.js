@@ -12,6 +12,11 @@ function clearBoard() {
     document.querySelector( "output" ).classList.remove('yellow' || 'red');
 }
 
+function soham ()
+{
+    console.log("Soham");
+}
+
 function drawBoard(board) {
     var name = ""
     clearBoard();
