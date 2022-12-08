@@ -7,7 +7,7 @@ document.getElementById("counting").innerText = c_score + '  VS  ' + n_score;
 function clearBoard() {
     for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
         for (let columnIndex = 0; columnIndex < 7; columnIndex++) {
-            document.getElementById(`row-${rowIndex}-column-${columnIndex}`).className = "";
+            document.getElementById(`row-${rowIndex}-column-${columnIndex}`).className = "td";
         }
     }
     document.querySelector( "output" ).classList.remove('yellow' || 'red');
@@ -21,7 +21,7 @@ function drawBoard(board) {
             if (!board[rowIndex][columnIndex]) {
                 continue;
             }
-            const cellText = board[rowIndex][columnIndex] === 'nought' ? "yellow" : "red";
+            const cellText = board[rowIndex][columnIndex] === 'nought' ? "yellow td" : "red td";
             document.getElementById(`row-${rowIndex}-column-${columnIndex}`).className = cellText;
         }
     }
