@@ -122,7 +122,7 @@ h2 {
 }
 .myDiv {
   width: 520px;
-  height: fit-content;
+  min-height: 77px;
   left: 500px;
   border: 2px outset white;
   background-color: black;    
@@ -130,3 +130,15 @@ h2 {
 #reset-button{
     margin-top: 10px;
 }
+.winning-message{
+  min-height: 77px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.win-msg{
+  display:none;
+  font-size: 80px;
+}
+

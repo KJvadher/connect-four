@@ -50,6 +50,12 @@ function animateL(line){
 }
 
 function positionClick(rowIndex, columnIndex, event) {
+    var red = document.getElementById('red');
+    var yellow = document.getElementById('yellow');
+    var cont = document.getElementById('counting');
+    var title = document.getElementById('title');
+    var out = document.getElementById('winner')
+
     takeTurn(rowIndex, columnIndex);
     const board = getBoard();
     drawBoard(board);
@@ -66,9 +72,27 @@ function positionClick(rowIndex, columnIndex, event) {
         }else if(winner === 'crosses'){
             color = 'red'
         }
+        out.style.color = color;
+        out.innerText = color + ' Wins!';
         //console.log(cArr)
         //animateL(pos)
-        output.classList.add(color);
+        if (out.style.display == 'block') {
+            red.style.display = 'block';
+            yellow.style.display = 'block';
+            title.style.display = 'block';
+            cont.style.display = 'block';
+            out.style.display = 'none';
+
+        }
+        else {
+            red.style.display = 'none';
+            yellow.style.display = 'none';
+            title.style.display = 'none';
+            cont.style.display = 'none';
+            out.style.display = 'block';
+        }    
+        //output.classList.add(color);
+
     }
     scoreCounter(winner);
 }
