@@ -95,9 +95,6 @@ var board = [
             }
         }
         console.log("checkWinner was called");
-        if(counter == 9){
-            return 'nobody'
-        }
         return null;
     }
     
