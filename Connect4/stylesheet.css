@@ -28,6 +28,7 @@ padding: 20px;
 .tr {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 .table{
     border:1px solid royalblue;
@@ -51,7 +52,7 @@ padding: 20px;
 
 }
 .child {
-  width: auto;
+  /* width: 622px; */
   height: auto;
   padding: 20px;
 }
