@@ -48,7 +48,8 @@ padding: 20px;
     box-shadow: inset .5vh .5vh 2vh .5vh rgba( 0, 0, 0, .5 );
     padding: 35px;
     margin: 5px;
-
+    height: max-content;
+    width: max-content;
 }
 .child {
   width: auto;
@@ -57,7 +58,7 @@ padding: 20px;
 }
 .trapezium {
     height: 0;
-    width: 622px;
+    width: 725px;
     border-bottom: 100px solid royalblue;
     border-left: 55px solid transparent;
     border-right: 55px solid transparent;
@@ -68,7 +69,7 @@ padding: 20px;
 
 }
 .yellow{
- background-color: yellow;
+ background-color:#F0DB4F;
  box-shadow: inset .5vh .5vh 2vh .5vh rgba( 0, 0, 0, .5 );
  padding: 35px;
  border-radius: 50%;
@@ -156,4 +157,54 @@ h2 {
   display:none;
   font-size: 80px;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.drop-targets {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.box {
+  height: 75px;
+  width: 75px;
+  margin: 5px;
+  border-radius: 50%;
+
+  /* align items in the box */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+.drag-over {
+  border: dashed 3px red;
+}
+
+.item {
+  height: 72px;
+  width: 72px;
+  background-color: #F0DB4F;
+  border-radius: 50%;
+
+}
+
+.hide {
+  display: none;
+}

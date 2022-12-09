@@ -110,6 +110,7 @@ function resetClick(event) {
 for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
     for (let columnIndex = 0; columnIndex < 7; columnIndex++) {
         const gridPosition = document.getElementById(`row-${rowIndex}-column-${columnIndex}`);
+        //const pos = document.getElementsById("item");
         gridPosition.addEventListener("click", positionClick.bind(null, rowIndex, columnIndex));
         //order--
     }
