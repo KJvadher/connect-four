@@ -179,8 +179,8 @@ h2 {
 }
 
 .box {
-  height: 75px;
-  width: 75px;
+  height: 72px;
+  width: 72px;
   margin: 5px;
   border-radius: 50%;
 
@@ -200,11 +200,29 @@ h2 {
 .item {
   height: 72px;
   width: 72px;
+  top: 145px;
   background-color: #F0DB4F;
   border-radius: 50%;
 
 }
-
 .hide {
   display: none;
 }
+#coolDiv {
+  position: absolute;
+  top: 145px;
+  height: 72px;
+  width: 72px;
+  background-color: #F0DB4F;
+  border-radius: 50%;
+}
+/* @keyframes example {
+  from {top: 0px; background-color: #F0DB4F;}
+  to {top: 513px; background-color: #F0DB4F;}
+}
+.one {
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+} */

@@ -1,8 +1,12 @@
 var n_score = 0
 var c_score = 0
 var res = []
-
+var height = 545
 document.getElementById("counting").innerText = c_score + '  VS  ' + n_score;
+
+// $(document).ready(function() {
+//     $("#coolDiv").animate({'top':height+'px'}, 3000);
+// });
 
 function clearBoard() {
     for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
@@ -23,6 +27,8 @@ function drawBoard(board) {
             }
             const cellText = board[rowIndex][columnIndex] === 'nought' ? "yellow td" : "red td";
             document.getElementById(`row-${rowIndex}-column-${columnIndex}`).className = cellText;
+            height = document.getElementById(`row-${rowIndex}-column-${columnIndex}`).offsetTop;
+            $("#coolDiv").animate({'top':height+'px'}, 3000);
         }
     }
 }
@@ -40,13 +46,6 @@ function scoreCounter(winner){
 }
 
 function animateL(line){
-    for(let i = 0; i>line.length; i++){
-        if(5 - line[i] == 4){
-
-        }
-        //console.log(i)
-        //document.getElementById(i).animate({backgroundColor: "pink"}, 1000);
-    }
 }
 
 function positionClick(rowIndex, columnIndex, event) {
@@ -110,7 +109,7 @@ function resetClick(event) {
 for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
     for (let columnIndex = 0; columnIndex < 7; columnIndex++) {
         const gridPosition = document.getElementById(`row-${rowIndex}-column-${columnIndex}`);
-        //const pos = document.getElementsById("item");
+        //const pos = document.getElementsById(`item-${rowIndex}-${columnIndex}`);
         gridPosition.addEventListener("click", positionClick.bind(null, rowIndex, columnIndex));
         //order--
     }
