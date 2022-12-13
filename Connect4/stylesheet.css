@@ -208,10 +208,10 @@ h2 {
 .hide {
   display: none;
 }
-#coolDiv {
+
+.coolDiv {
   position: absolute;
-  top: 145px;
-  height: 72px;
+  height: 72px; 
   width: 72px;
   background-color: #F0DB4F;
   border-radius: 50%;

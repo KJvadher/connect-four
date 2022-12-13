@@ -18,7 +18,7 @@ function clearBoard() {
 }
 
 function drawBoard(board) {
-    var name = ""
+    var name = 0
     clearBoard();
     for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
         for (let columnIndex = 0; columnIndex < 7; columnIndex++) {
@@ -28,7 +28,11 @@ function drawBoard(board) {
             const cellText = board[rowIndex][columnIndex] === 'nought' ? "yellow td" : "red td";
             document.getElementById(`row-${rowIndex}-column-${columnIndex}`).className = cellText;
             height = document.getElementById(`row-${rowIndex}-column-${columnIndex}`).offsetTop;
-            $("#coolDiv").animate({'top':height+'px'}, 3000);
+            // var newDiv = document.createElement("div")
+            // newDiv.innerText = `Bababooie${name++}`
+            // var parent = document.getElementById("newDiv")
+            // parent.insertBefore(newDiv,document.getElementById("coolDiv"))
+            // $("#coolDiv").animate({'top':height+'px'}, 3000);
         }
     }
 }
