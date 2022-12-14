@@ -70,7 +70,6 @@ padding: 20px;
 }
 .yellow{
  background-color:#F0DB4F;
- box-shadow: inset .5vh .5vh 2vh .5vh rgba( 0, 0, 0, .5 );
  padding: 35px;
  border-radius: 50%;
  margin: 5px;
@@ -78,7 +77,6 @@ padding: 20px;
 }
 .red{
   background-color: red;
-  box-shadow: inset .5vh .5vh 2vh .5vh rgba( 0, 0, 0, .5 );
   padding: 35px;
   border-radius: 50%;
   margin: 5px;
@@ -216,13 +214,10 @@ h2 {
   background-color: #F0DB4F;
   border-radius: 50%;
 }
-/* @keyframes example {
-  from {top: 0px; background-color: #F0DB4F;}
-  to {top: 513px; background-color: #F0DB4F;}
+
+.glow {
+  box-shadow:
+  0 0 5px 5px #fff,  /* inner white */
+  0 0 10px 10px #f0f, /* middle magenta */
+  0 0 10px 10px #0ff; /* outer cyan */
 }
-.one {
-  position: relative;
-  animation-name: example;
-  animation-duration: 3s;
-  animation-fill-mode: both;
-} */

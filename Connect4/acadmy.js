@@ -9,7 +9,6 @@ var nought = 'nought'
 var cross = 'cross'
 var counter = 0
 var cArr = [5, 5, 5, 5, 5, 5, 5]
-var num = 0
 var win = false
 let winner = ''
 function takeTurn(row, column) {
@@ -20,32 +19,26 @@ function takeTurn(row, column) {
     for (let index = 0; index < cArr.length; index++) {
         if (column == index) {
             if (board[cArr[index]][column] == null) {
-                // (counter % 2 == 0) ? board[cArr[index]][column] = nought : board[cArr[index]][column] = cross
                 var move = (counter % 2 == 0) ? nought : cross
                 board[cArr[index]][column] = move
                 var newDiv = document.createElement("div")
                 newDiv.setAttribute("id", `disc${cArr[index]}-${column}`)
                 newDiv.setAttribute("class", "coolDiv")
                 newDiv.style.backgroundColor = move == nought ? "F0DB4F" : "red"
-                // newDiv.innerText = `Bababooie: cArr${cArr[index]} col: ${column}` //testing
-                // newDiv.innerText = ` 1` //testing
-
                 var parent = document.getElementById(`${column}`)
                 parent.appendChild(newDiv)
                 height = document.getElementById(`row-${cArr[index]}-column-${column}`).offsetTop;
-                // console.log(height)
                 var delay = 100 + (50 * cArr[index])
                 console.log(`Delay for animation: ${delay}`)
                 $(`#disc${cArr[index]}-${column}`).animate({ 'top': height + 'px' }, delay, "linear");
                 $(`#disc${cArr[index]}-${column}`).animate({ 'background-color': 'transparent' }, 200, "linear");
+                // parent.removeChild(newDiv)
                 counter++
                 cArr[index]--
-
-
             }
         }
     }
-
+    // parent.removeChild(newDiv)
     return board
 }
 
@@ -70,10 +63,18 @@ function checkWinner() {
                         && board[i][j + 3] == turn) {
                         win = true
                         winner = turn
-                        anim(`row-${i}-column-${j}`)
-                        anim(`row-${i}-column-${j + 1}`)
-                        anim(`row-${i}-column-${j + 2}`)
-                        anim(`row-${i}-column-${j + 3}`)
+                        for (let index = 0; index < 4; index++) {
+                            document.getElementById(`row-${i}-column-${j+index}`).classList.add("glow")
+                            
+                        }
+                        // document.getElementById(`row-${i}-column-${j}`).classList.add("glow")
+                        // document.getElementById(`row-${i}-column-${j+1}`).classList.add("glow")
+                        // document.getElementById(`row-${i}-column-${j+2}`).classList.add("glow")
+                        // document.getElementById(`row-${i}-column-${j+3}`).classList.add("glow")
+                        // anim(`row-${i}-column-${j}`)
+                        // anim(`row-${i}-column-${j + 1}`)
+                        // anim(`row-${i}-column-${j + 2}`)
+                        // anim(`row-${i}-column-${j + 3}`)
                     }
                     else if (board[i][j] == turn
                         && board[i + 1][j] == turn
@@ -81,14 +82,16 @@ function checkWinner() {
                         && board[i + 3][j] == turn) {
                         win = true
                         winner = turn
-                        anim(`row-${i}-column-${j}`)
-                        anim(`row-${i + 1}-column-${j}`)
-                        anim(`row-${i + 2}-column-${j}`)
-                        anim(`row-${i + 3}-column-${j}`)
+                        // anim(`row-${i}-column-${j}`)
+                        // anim(`row-${i + 1}-column-${j}`)
+                        // anim(`row-${i + 2}-column-${j}`)
+                        // anim(`row-${i + 3}-column-${j}`)
+                        for (let index = 0; index < 4; index++) {
+                            document.getElementById(`row-${i+index}-column-${j}`).classList.add("glow")
+                        }
                     }
                 }
-                catch (error) {
-                }
+                catch (error) {}
                 try {
                     if (board[i][j] == turn
                         && board[i + 1][j + 1] == turn
@@ -96,15 +99,17 @@ function checkWinner() {
                         && board[i + 3][j + 3] == turn) {
                         win = true
                         winner = turn
-                        anim(`row-${i}-column-${j}`)
-                        anim(`row-${i + 1}-column-${j + 1}`)
-                        anim(`row-${i + 2}-column-${j + 2}`)
-                        anim(`row-${i + 3}-column-${j + 3}`)
+                        // anim(`row-${i}-column-${j}`)
+                        // anim(`row-${i + 1}-column-${j + 1}`)
+                        // anim(`row-${i + 2}-column-${j + 2}`)
+                        // anim(`row-${i + 3}-column-${j + 3}`)
+                        for (let index = 0; index < 4; index++) {
+                            document.getElementById(`row-${i+index}-column-${j+index}`).classList.add("glow")
+                            
+                        }
                     }
                 }
-                catch (error) {
-
-                }
+                catch (error) {}
                 try {
                     if (board[i][j] == turn
                         && board[i - 1][j + 1] == turn
@@ -112,18 +117,18 @@ function checkWinner() {
                         && board[i - 3][j + 3] == turn) {
                         win = true
                         winner = turn
-                        anim(`row-${i}-column-${j}`)
-                        anim(`row-${i - 1}-column-${j + 1}`)
-                        anim(`row-${i - 2}-column-${j + 2}`)
-                        anim(`row-${i - 3}-column-${j + 3}`)
+                        for (let index = 0; index < 4; index++) {
+                            document.getElementById(`row-${i-index}-column-${j+index}`).classList.add("glow")
+                            
+                        }
+                        // anim(`row-${i}-column-${j}`)
+                        // anim(`row-${i - 1}-column-${j + 1}`)
+                        // anim(`row-${i - 2}-column-${j + 2}`)
+                        // anim(`row-${i - 3}-column-${j + 3}`)
                     }
-
                 }
-                catch (error) {
-
-                }
+                catch (error) {}
             }
-
         }
     }
     if (winner == 'cross') {
@@ -133,14 +138,8 @@ function checkWinner() {
         return 'noughts'
     }
     console.log("checkWinner was called");
-    // if (counter == 9) {
-    //     return 'nobody'
-    // }
     return null;
 }
-
-
-
 
 function resetGame() {
     board = [
@@ -152,10 +151,6 @@ function resetGame() {
         [null, null, null, null, null, null, null],]
     counter = 0
     win = false
-    count1 = 0
-    count2 = 0
-    col1 = 0
-    col2 = 0
     cArr = [5, 5, 5, 5, 5, 5, 5]
     console.log("resetGame was called");
 }
