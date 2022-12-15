@@ -1,8 +1,12 @@
 var n_score = 0
 var c_score = 0
 var res = []
-
+var height = 545
 document.getElementById("counting").innerText = c_score + '  VS  ' + n_score;
+
+// $(document).ready(function() {
+//     $("#coolDiv").animate({'top':height+'px'}, 3000);
+// });
 
 function clearBoard() {
     for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
@@ -14,7 +18,7 @@ function clearBoard() {
 }
 
 function drawBoard(board) {
-    var name = ""
+    var name = 0
     clearBoard();
     for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
         for (let columnIndex = 0; columnIndex < 7; columnIndex++) {
@@ -23,6 +27,12 @@ function drawBoard(board) {
             }
             const cellText = board[rowIndex][columnIndex] === 'nought' ? "yellow td" : "red td";
             document.getElementById(`row-${rowIndex}-column-${columnIndex}`).className = cellText;
+            height = document.getElementById(`row-${rowIndex}-column-${columnIndex}`).offsetTop;
+            // var newDiv = document.createElement("div")
+            // newDiv.innerText = `Bababooie${name++}`
+            // var parent = document.getElementById("newDiv")
+            // parent.insertBefore(newDiv,document.getElementById("coolDiv"))
+            // $("#coolDiv").animate({'top':height+'px'}, 3000);
         }
     }
 }
@@ -40,13 +50,6 @@ function scoreCounter(winner){
 }
 
 function animateL(line){
-    for(let i = 0; i>line.length; i++){
-        if(5 - line[i] == 4){
-
-        }
-        //console.log(i)
-        //document.getElementById(i).animate({backgroundColor: "pink"}, 1000);
-    }
 }
 
 function positionClick(rowIndex, columnIndex, event) {
@@ -56,7 +59,55 @@ function positionClick(rowIndex, columnIndex, event) {
     var title = document.getElementById('title');
     var out = document.getElementById('winner')
 
-    takeTurn(rowIndex, columnIndex);
+    takeTurn(columnIndex);
+    const board = getBoard();
+    drawBoard(board);
+    const winner = checkWinner();
+    var color = ''
+    output = document.querySelector( "output" );
+    if (winner) {
+        if (typeof winner !== "string" || !["noughts", "crosses", "nobody"].includes(winner)) {
+            throw "Expecting 'checkWinner' to return null or one of the strings 'noughts', 'crosses' or 'nobody'. Actually received: " + winner;
+        }
+        //color = winner === 'noughts' ? 'yellow' : 'red';
+        if(winner === 'noughts'){
+            color = 'yellow'
+        }else if(winner === 'crosses'){
+            color = 'red'
+        }
+        out.style.color = color;
+        out.innerText = color + ' Wins!';
+        //console.log(cArr)
+        //animateL(pos)
+        if (out.style.display == 'block') {
+            red.style.display = 'block';
+            yellow.style.display = 'block';
+            title.style.display = 'block';
+            cont.style.display = 'block';
+            out.style.display = 'none';
+
+        }
+        else {
+            red.style.display = 'none';
+            yellow.style.display = 'none';
+            title.style.display = 'none';
+            cont.style.display = 'none';
+            out.style.display = 'block';
+        }    
+        //output.classList.add(color);
+
+    }
+    scoreCounter(winner);
+}
+
+function game(columnIndex) {
+    var red = document.getElementById('red');
+    var yellow = document.getElementById('yellow');
+    var cont = document.getElementById('counting');
+    var title = document.getElementById('title');
+    var out = document.getElementById('winner')
+
+    takeTurn(columnIndex);
     const board = getBoard();
     drawBoard(board);
     const winner = checkWinner();
@@ -110,6 +161,7 @@ function resetClick(event) {
 for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
     for (let columnIndex = 0; columnIndex < 7; columnIndex++) {
         const gridPosition = document.getElementById(`row-${rowIndex}-column-${columnIndex}`);
+        //const pos = document.getElementsById(`item-${rowIndex}-${columnIndex}`);
         gridPosition.addEventListener("click", positionClick.bind(null, rowIndex, columnIndex));
         //order--
     }
@@ -133,6 +185,7 @@ if (typeof exports === 'object') {
         positionClick,
         scoreCounter,
         resetClick,
+        game
     }
 } else {
     console.log("Running in Browser")
