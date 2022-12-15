@@ -59,7 +59,55 @@ function positionClick(rowIndex, columnIndex, event) {
     var title = document.getElementById('title');
     var out = document.getElementById('winner')
 
-    takeTurn(rowIndex, columnIndex);
+    takeTurn(columnIndex);
+    const board = getBoard();
+    drawBoard(board);
+    const winner = checkWinner();
+    var color = ''
+    output = document.querySelector( "output" );
+    if (winner) {
+        if (typeof winner !== "string" || !["noughts", "crosses", "nobody"].includes(winner)) {
+            throw "Expecting 'checkWinner' to return null or one of the strings 'noughts', 'crosses' or 'nobody'. Actually received: " + winner;
+        }
+        //color = winner === 'noughts' ? 'yellow' : 'red';
+        if(winner === 'noughts'){
+            color = 'yellow'
+        }else if(winner === 'crosses'){
+            color = 'red'
+        }
+        out.style.color = color;
+        out.innerText = color + ' Wins!';
+        //console.log(cArr)
+        //animateL(pos)
+        if (out.style.display == 'block') {
+            red.style.display = 'block';
+            yellow.style.display = 'block';
+            title.style.display = 'block';
+            cont.style.display = 'block';
+            out.style.display = 'none';
+
+        }
+        else {
+            red.style.display = 'none';
+            yellow.style.display = 'none';
+            title.style.display = 'none';
+            cont.style.display = 'none';
+            out.style.display = 'block';
+        }    
+        //output.classList.add(color);
+
+    }
+    scoreCounter(winner);
+}
+
+function game(columnIndex) {
+    var red = document.getElementById('red');
+    var yellow = document.getElementById('yellow');
+    var cont = document.getElementById('counting');
+    var title = document.getElementById('title');
+    var out = document.getElementById('winner')
+
+    takeTurn(columnIndex);
     const board = getBoard();
     drawBoard(board);
     const winner = checkWinner();
@@ -137,6 +185,7 @@ if (typeof exports === 'object') {
         positionClick,
         scoreCounter,
         resetClick,
+        game
     }
 } else {
     console.log("Running in Browser")

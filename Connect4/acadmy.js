@@ -11,8 +11,8 @@ var counter = 0
 var cArr = [5, 5, 5, 5, 5, 5, 5]
 var win = false
 let winner = ''
-function takeTurn(row, column) {
-    console.log("takeTurn was called with row: " + row + ", column:" + column);
+function takeTurn(column) {
+    //console.log("takeTurn was called with row: " + row + ", column:" + column);
     if (win) {
         return
     }
@@ -20,6 +20,11 @@ function takeTurn(row, column) {
         if (column == index) {
             if (board[cArr[index]][column] == null) {
                 var move = (counter % 2 == 0) ? nought : cross
+                if(move == nought){
+                    document.getElementById('item').style.backgroundColor = 'red'
+                }else{
+                    document.getElementById('item').style.backgroundColor = 'yellow'
+                }
                 board[cArr[index]][column] = move
                 var newDiv = document.createElement("div")
                 newDiv.setAttribute("id", `disc${cArr[index]}-${column}`)
@@ -31,7 +36,9 @@ function takeTurn(row, column) {
                 var delay = 100 + (50 * cArr[index])
                 console.log(`Delay for animation: ${delay}`)
                 $(`#disc${cArr[index]}-${column}`).animate({ 'top': height + 'px' }, delay, "linear");
-                $(`#disc${cArr[index]}-${column}`).animate({ 'background-color': 'transparent' }, 200, "linear");
+                $(`#disc${cArr[index]}-${column}`).animate({ 'background-color': 'transparent' }, 200, "linear",() => {
+                    parent.removeChild(newDiv)
+                });
                 // parent.removeChild(newDiv)
                 counter++
                 cArr[index]--

@@ -1,4 +1,4 @@
-
+//const { takeTurn } = require("./acadmy");
 /* draggable element */
 const item = document.querySelector('.item');
 
@@ -42,6 +42,7 @@ function drop(e) {
 
     // get the draggable element
     const id = e.dataTransfer.getData('text/plain');
+    //console.log(id)
     const draggable = document.getElementById(id);
 
     // add it to the drop target
@@ -49,4 +50,8 @@ function drop(e) {
 
     // display the draggable element
     draggable.classList.remove('hide');
+
+    console.log(e.target.id)
+
+    game(e.target.id);
 }
