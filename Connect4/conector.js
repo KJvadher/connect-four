@@ -28,11 +28,7 @@ function drawBoard(board) {
             const cellText = board[rowIndex][columnIndex] === 'nought' ? "yellow td" : "red td";
             document.getElementById(`row-${rowIndex}-column-${columnIndex}`).className = cellText;
             height = document.getElementById(`row-${rowIndex}-column-${columnIndex}`).offsetTop;
-            // var newDiv = document.createElement("div")
-            // newDiv.innerText = `Bababooie${name++}`
-            // var parent = document.getElementById("newDiv")
-            // parent.insertBefore(newDiv,document.getElementById("coolDiv"))
-            // $("#coolDiv").animate({'top':height+'px'}, 3000);
+
         }
     }
 }

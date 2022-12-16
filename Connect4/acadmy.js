@@ -26,26 +26,62 @@ function takeTurn(column) {
                     document.getElementById('item').style.backgroundColor = 'yellow'
                 }
                 board[cArr[index]][column] = move
-                var newDiv = document.createElement("div")
-                newDiv.setAttribute("id", `disc${cArr[index]}-${column}`)
-                newDiv.setAttribute("class", "coolDiv")
-                newDiv.style.backgroundColor = move == nought ? "F0DB4F" : "red"
-                var parent = document.getElementById(`${column}`)
-                parent.appendChild(newDiv)
-                height = document.getElementById(`row-${cArr[index]}-column-${column}`).offsetTop;
-                var delay = 100 + (50 * cArr[index])
-                console.log(`Delay for animation: ${delay}`)
-                $(`#disc${cArr[index]}-${column}`).animate({ 'top': height + 'px' }, delay, "linear");
-                $(`#disc${cArr[index]}-${column}`).animate({ 'background-color': 'transparent' }, 200, "linear",() => {
-                    parent.removeChild(newDiv)
-                });
-                // parent.removeChild(newDiv)
                 counter++
                 cArr[index]--
+                animateMove(cArr[index]+1,column, nought)
+                // var newDiv = document.createElement("div")
+                // newDiv.setAttribute("id", `disc${cArr[index]}-${column}`)
+                // newDiv.setAttribute("class", "coolDiv")
+                // newDiv.style.backgroundColor = move == nought ? "F0DB4F" : "red"
+                // var parent = document.getElementById(`${column}`)
+                // parent.appendChild(newDiv)
+                // height = document.getElementById(`row-${cArr[index]}-column-${column}`).offsetTop;
+                // var delay = 100 + (50 * cArr[index])
+                // console.log(`Delay for animation: ${delay}`)
+                // $(`#disc${cArr[index]}-${column}`).animate({ 'top': height + 'px' }, delay, "linear");
+                // $(`#disc${cArr[index]}-${column}`).animate({ 'background-color': 'transparent' }, 200, "linear",() => {
+                //     parent.removeChild(newDiv)
+                // });
+                // parent.removeChild(newDiv)
+
+                var test = moveAI()
+                console.log(`AI moved: ${test}`)
+                // animateMove(test[0],test[1],test[3])
             }
         }
     }
-    // parent.removeChild(newDiv)
+    function moveAI() {
+        var colAI = Math.floor(Math.random() * 7)
+        for (let i = 0; i < cArr.length; i++) {
+            if (colAI == i) {
+                if (board[cArr[i]][colAI] == null) {
+                    document.getElementById('item').style.backgroundColor = 'yellow'
+                    board[cArr[i]][colAI] = cross
+                    counter++
+                    cArr[i]--
+                    animateMove(cArr[i]+1, colAI, cross)
+                    return
+                }
+            }
+        }
+        moveAI()
+    }
+    function animateMove(row, col, move) {
+        // var row = move== nought ? row:row +1
+        var newDiv = document.createElement("div")
+        newDiv.setAttribute("id", `disc${row}-${col}`)
+        newDiv.setAttribute("class", "coolDiv")
+        newDiv.style.backgroundColor = move == nought ? "F0DB4F" : "red" //get move as parameter
+        var parent = document.getElementById(`${col}`)
+        parent.appendChild(newDiv)
+        height = document.getElementById(`row-${row}-column-${col}`).offsetTop;
+        var delay = 100 + (50 * row)
+        console.log(`Delay for animation: ${delay}`)
+        $(`#disc${row}-${col}`).animate({ 'top': height + 'px' }, delay, "linear");
+        $(`#disc${row}-${col}`).animate({ 'background-color': 'transparent' }, 200, "linear", () => {
+            parent.removeChild(newDiv)
+        });
+    }
     return board
 }
 
